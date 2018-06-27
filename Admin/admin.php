@@ -67,7 +67,7 @@
                             }
                         ?>
                     </select>
-                    <button class="button" onclick="removeTeam()"> Remove Team </button>
+                    <button class="button delete" onclick="removeTeam()"> Remove Team </button>
                 </div>
                 <div class="add-team">
                     <div>
@@ -80,7 +80,7 @@
                         <input type="text" id="teamName"></input>
                     </div>
                     </br>
-                    <button type="submit" class="button save" onclick="saveTeam()">Save</button>
+                    <button type="submit" class="button select save" onclick="saveTeam()">Save</button>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                         <input type ="text" id="eventName"></input>
                     </div>
                     </br>
-                    <button type="submit" class="button save" onclick="saveEvent()">Save Competition</button>
+                    <button type="submit" class="button select save" onclick="saveEvent()">Save Competition</button>
                 </div>
             </div>
         </div>
@@ -116,19 +116,46 @@
         <div id="edit-competition" class="tabcontent">
             <h3 style="rgb(6, 42, 70); text-decoration: none;">Edit Competition </h3>
             <p style="rgb(6, 42, 70); text-decoration: none;">Add/Remove Teams or Import Matches </p>
-            <div class="editCompetitions">
-                <select id="teams">
-                    <option value="" disabled selected>Select Team</option>
-                    <?php
-                        // $results = $conn->query("SELECT su.Name, su.Login_Name, su.ID FROM SanD_Student_User su JOIN SanD_Section s ON su.Section_ID = s.ID Where s.Open = true AND su.Name != 'Admin'");
-                        // $users = array();
-                        // while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
-                        //     echo ('<option value="' . $rs["ID"] . '">' . $rs["Name"] . '</option>');
-                        //     $users[] = $rs;
-                        // }
-                    ?>
-                </select>
-                <button class="button" onclick="deleteUser()"> Remove Team </button>
+            <div class="row">
+                <div class="editCompetitions teams">
+                    <select id="competitions">
+                        <option value="" disabled selected>Select Competition</option>
+                        <?php
+                            $results = $conn->query("SELECT * FROM Event");
+                            $events = array();
+                            while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
+                                echo ("<option value='{\"Id\": " . $rs["Id"] . ", \"Name\": \"" . $rs["Name"] .  "\", \"Date\": \"" . $rs["Date"] . "\", \"CurrentMatch\":" . $rs["CurrentMatch"] . "}'>" . $rs["Name"] . "</option>");
+                                $events[] = $rs;
+                            }
+                        ?>
+                    </select>
+                    <button class="button select" onclick="loadCompetition()"> Select Competition </button>
+                    <button class="button delete" onclick="deleteConpetition()"> Delete Competition </button>
+                </div>
+            
+                <div class="row info">
+                    <div id="competitionTeams" class="teams">
+                        <?php
+                            foreach ($teams as $team) {
+                                echo ('<div><input onChange="updateCompetition(' . $team["TeamNumber"] . ')" class="eventTeam" id="' . $team["TeamNumber"] . '" type="checkbox" value="' . $team['TeamNumber'] .'">  &nbsp;' . $team['Name'] . ': ' . $team['TeamNumber'] . '</input> </br></div>');
+                                $users[] = $rs;
+                            }
+                        ?>
+                    </div>
+                    <div id="competitionData" class="info">
+                        <div>
+                            <label>Competition Date: &nbsp;</label>
+                            <input type ="date" id="editEventDate"></input>
+                        </div>
+                        </br>
+                        <div>
+                            <label>Event Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                            <input type ="text" id="editEventName"></input>
+                        </div>
+                        </br>
+                        <button type="submit" class="button select save" onclick="updateEvent()">Save Competition</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -179,6 +206,54 @@
                             });
                         }
                     });
+                }
+            }
+
+            function updateEvent() {
+                let competition = JSON.parse($('#competitions option:selected').val())
+                let competitionId = competition.Id;
+
+                let newDate = $('#editEventDate').val();
+                let newName = $('#editEventName').val();
+
+                $.get(`./updateCompetition.php?competitionId=${competitionId}&competitionDate=${newDate}&competitionName=${newName}&currentMatch=${competition.CurrentMatch}`, function(result) {});
+            }
+
+            function loadCompetition() {
+                let competition = JSON.parse($('#competitions option:selected').val())
+                let competitionId = competition.Id;
+                $.get(`./getTeamsAtCompetition.php?competitionId=${competitionId}`, function(result) {
+                    let selectedTeams = result;
+                    console.log(selectedTeams)
+                    let children = $("#competitionTeams")[0].children;
+                    for(let team of selectedTeams) {
+                        if($(`#${team.TeamId}`).length > 0) {
+                            $(`#${team.TeamId}`)[0].checked = true;
+                        }
+                    };
+                });
+
+                $('#editEventDate').val(competition.Date);
+                $('#editEventName').val(competition.Name);
+
+                let newDate = $('#editEventDate').val();
+                let newName = $('#editEventName').val();
+
+                // $.get(`./updateCompetition.php?competitionId=${competitionId}&competitionDate=${newDate}&competitionName=${newName}&currentMatch=${competition.CurrentMatch}`, function(result) {
+                //     console.log(result);
+                // });
+            }
+
+            function updateCompetition(teamId) {
+                let checked = $(`#${teamId}`)[0].checked;
+                let event = JSON.parse($('#competitions option:selected').val())
+                let eventId = event.Id;
+                console.log(event)
+                console.log(checked)
+                if (checked) {
+                    $.get(`./createTeamEvent.php?teamId=${teamId}&eventId=${eventId}`, function(result){});
+                } else {
+                    $.get(`./removeTeamEvent.php?teamId=${teamId}&eventId=${eventId}`, function(result){});
                 }
             }
 
