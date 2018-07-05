@@ -1,0 +1,55 @@
+body {
+    background: transparent url(../gradient.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #ccc;
+    font-family: arial, sans-serif;
+}
+
+#header{
+    border-radius: 25px;
+    background: #CCC;
+    color: rgb(6, 42, 70);
+    padding: 20px;
+    margin-bottom: 2em;
+}
+
+.header{
+    width:95%;
+    margin: 0 auto;
+  }
+  .header-content{
+    padding: 0 0 0 2em;
+  }
+  .header-title{
+    float: left;
+    width: 70%;
+    margin-top: -0.6em;
+  }
+  .header-right{
+    text-align: right;
+    margin-right: 3em;
+  }
+
+  .button {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 10px;
+    font-family: Arial;
+    color: #CCC;
+    font-size: 12px;
+    
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    margin-top: 0.4em;
+  }
+
+  .select {
+    background: rgb(6, 42, 70);
+  }
+
+  .select:hover {
+    background: #313C74;
+  }
