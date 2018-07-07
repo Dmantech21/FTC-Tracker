@@ -2,7 +2,6 @@
     header("Content-type: application/json");
     session_start();
 
-    $teamId = $_GET['teamId'];
     $eventId = $_GET['eventId'];
 
     $dbLocation = $_SESSION['location'];
@@ -12,10 +11,11 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
-    $conn->query("INSERT INTO TeamEvent (EventId, TeamId, IsCheckedIn, PassedRobotInspection, PassedFieldInspection, ReadyForJudging)
-        VALUES (
-        $eventId, $teamId, 0, 0, 0, 0
-        );");
+    $conn->query("UPDATE Event SET Open = 0;");
+
+    $conn->query("UPDATE Event 
+        SET Open = 1
+        WHERE Id = '$eventId'");
 
     echo("{}");
 

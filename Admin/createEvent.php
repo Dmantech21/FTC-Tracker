@@ -12,9 +12,9 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
-    $conn->query("INSERT INTO Event (Id, Name, Date, CurrentMatch)
+    $conn->query("INSERT INTO Event (Id, Name, Date, CurrentMatch, Open)
         VALUES (
-        null, '$eventName', '$date', 0
+        null, '$eventName', '$date', 0, 0
         );");
 
     $results = $conn->query("SELECT * FROM Event 

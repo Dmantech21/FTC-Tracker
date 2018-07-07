@@ -9,12 +9,12 @@
             $_SESSION['userName'] = null;
             $_SESSION['Role'] = null;
             $_SESSION['timeout'] = null;
-            header("Location: ../index.php");
+            header("Location: ../../index.php");
         } else {
             $_SESSION['timeout'] = time();
             if ((!isset($_SESSION['logged_In']) || $_SESSION['logged_In'] == false) || (!isset($_SESSION['Role']) || $_SESSION['Role'] != 'Admin')) {
                 $_SESSION['timeout'] = null;
-                header("Location: ../index.php");
+                header("Location: ../../index.php");
             }
         }
 
@@ -37,18 +37,7 @@
         <link rel="stylesheet" href="admin.css">
     </head>
     <body>
-        <div id="header">
-            <div class="header-content">
-                <div class="header-title">
-                    <h1>FTC-Competition Tracker</h1>
-                </div>
-                <div class="header-right">
-                    <h4> Beta Testing</h4>
-                    <h4>Administator</h4>
-                </div>
-            </div>
-        </div>
-
+        <div id="header"></div>
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'manage-teams')" id="defaultOpen">Manage Teams</>
             <button class="tablinks" onclick="openTab(event, 'create-competition')" >Create Competition</button>
@@ -117,7 +106,7 @@
             <h3 style="rgb(6, 42, 70); text-decoration: none;">Edit Competition </h3>
             <p style="rgb(6, 42, 70); text-decoration: none;">Add/Remove Teams or Import Matches </p>
             <div class="row">
-                <div class="editCompetitions teams">
+                <div class="teams">
                     <select id="competitions">
                         <option value="" disabled selected>Select Competition</option>
                         <?php
@@ -130,7 +119,7 @@
                         ?>
                     </select>
                     <button class="button select" onclick="loadCompetition()"> Select Competition </button>
-                    <button class="button delete" onclick="deleteConpetition()"> Delete Competition </button>
+                    <button class="button select" onclick="openCompetition()"> Open Competition </button>
                 </div>
             
                 <div class="row info">
@@ -160,6 +149,7 @@
         </div>
 
         <script>
+            $('#header').load('../header.php');
             function openTab(evt, cityName) {
                 var i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");
@@ -224,7 +214,6 @@
                 let competitionId = competition.Id;
                 $.get(`./getTeamsAtCompetition.php?competitionId=${competitionId}`, function(result) {
                     let selectedTeams = result;
-                    console.log(selectedTeams)
                     let children = $("#competitionTeams")[0].children;
                     for(let team of selectedTeams) {
                         if($(`#${team.TeamId}`).length > 0) {
@@ -238,23 +227,24 @@
 
                 let newDate = $('#editEventDate').val();
                 let newName = $('#editEventName').val();
-
-                // $.get(`./updateCompetition.php?competitionId=${competitionId}&competitionDate=${newDate}&competitionName=${newName}&currentMatch=${competition.CurrentMatch}`, function(result) {
-                //     console.log(result);
-                // });
             }
 
             function updateCompetition(teamId) {
                 let checked = $(`#${teamId}`)[0].checked;
                 let event = JSON.parse($('#competitions option:selected').val())
                 let eventId = event.Id;
-                console.log(event)
-                console.log(checked)
                 if (checked) {
                     $.get(`./createTeamEvent.php?teamId=${teamId}&eventId=${eventId}`, function(result){});
                 } else {
                     $.get(`./removeTeamEvent.php?teamId=${teamId}&eventId=${eventId}`, function(result){});
                 }
+            }
+
+            function openCompetition() {
+                let event = JSON.parse($('#competitions option:selected').val())
+                let eventId = event.Id;
+                
+                $.get(`./setOpenCompetition.php?eventId=${eventId}`, function(result){});
             }
 
             // Get the element with id="defaultOpen" and click on it
