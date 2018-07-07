@@ -10,12 +10,12 @@
             $_SESSION['userName'] = null;
             $_SESSION['Role'] = null;
             $_SESSION['timeout'] = null;
-            header("Location: ../../index.php");
+            header("Location: ../index.php");
         } else {
             $_SESSION['timeout'] = time();
             if ((!isset($_SESSION['logged_In']) || $_SESSION['logged_In'] == false) || (!isset($_SESSION['Role']) || $_SESSION['Role'] == 'Admin' || $_SESSION['Role'] == 'Guest')) {
                 $_SESSION['timeout'] = null;
-                header("Location: ../../index.php");
+                header("Location: ../index.php");
             }
         }
 
