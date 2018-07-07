@@ -12,7 +12,7 @@
 </div>
 <script>
     function logOut() {
-        $.get(`../../logout.php`, function(result){
+        $.get(`../logout.php`, function(result){
             window.location.reload();
         });
     }
