@@ -30,24 +30,17 @@
     <head>
         <title>FTC-Competition Tracker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="admin.css">
     </head>
     <body>
-        <div id="header">
-            <div class="header-content">
-                <div class="header-title">
-                    <h1>FTC-Competition Tracker</h1>
-                </div>
-                <div class="header-right">
-                    <h4> Beta Testing</h4>
-                    <h4><?php echo($role);?></h4>
-                </div>
-            </div>
-        </div>
-
+        <div id="header"></div>
         <div>
+            <?php
+                $result = $conn->query("SELECT * FROM Event WHERE Open = 1;");
+                $rs = $result->fetch_array(MYSQLI_ASSOC);
+                $competitionId = $rs["Id"];
+            ?>
             <select id="teams">
-                <option value="" disabled selected>Select Team</option>
+                <option value="" disabled selected>Select Team</option>teams
                 <?php
                     if($role === 'RobotInspector') {
                         $attribute = 'PassedRobotInspection';
@@ -60,36 +53,25 @@
                     } else {
                         $attribute = '1';
                     }
-                    $results = $conn->query("SELECT * FROM TeamEvent WHERE" . $attribute . "= 0;");
-                    $events = array();
+
+                    $results = $conn->query("SELECT * FROM TeamEvent AS te JOIN Event AS e ON te.EventId = e.Id WHERE te." . $attribute . " = 0 AND e.Open = 1;");
+                    $teams = array();
                     while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
-                        echo ("<option value='{\"Id\": " . $rs["Id"] . ", \"Name\": \"" . $rs["Name"] .  "\", \"Date\": \"" . $rs["Date"] . "\", \"CurrentMatch\":" . $rs["CurrentMatch"] . "}'>" . $rs["Name"] . "</option>");
-                        $events[] = $rs;
-                    }
+                        echo ("<option value='" . $rs["TeamId"] . "'>" .  $rs["TeamId"]. "</option>");
+                        $teams[] = $rs;
+                    }  
                 ?>
             </select>
-            <button class="button select" onclick="loadCompetition()"> Select Competition </button>
+            <button class="button select" onclick="updateTeamAtEvent()"> Approve Team </button>
         </div>
         <script>
-            function updateTeamAtCompetition() {
-                // let competition = JSON.parse($('#competitions option:selected').val())
-                // let competitionId = competition.Id;
-                // $.get(`./getTeamsAtCompetition.php?competitionId=${competitionId}`, function(result) {
-                //     let teams = result;
-                //     console.log(teams)
-                //     let children = $("#competitionTeams")[0].children;
-                //     for(let team of selectedTeams) {
-                //         if($(`#${team.TeamId}`).length > 0) {
-                //             $(`#${team.TeamId}`)[0].checked = true;
-                //         }
-                //     };
-                // });
+            $('#header').load('../header.php');
 
-                // $('#editEventDate').val(competition.Date);
-                // $('#editEventName').val(competition.Name);
-
-                // let newDate = $('#editEventDate').val();
-                // let newName = $('#editEventName').val();
+            function updateTeamAtEvent() {
+                let team = $('#teams option:selected').val();
+                $.get(`./updateTeamAtCompetition.php?competitionId=<?php echo($competitionId)?>&teamId=${team}&attribute=<?php echo($attribute)?>`, function(result) {
+                    window.location.reload();
+                });
             }
         </script>
     </body>

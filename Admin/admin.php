@@ -37,18 +37,7 @@
         <link rel="stylesheet" href="admin.css">
     </head>
     <body>
-        <div id="header">
-            <div class="header-content">
-                <div class="header-title">
-                    <h1>FTC-Competition Tracker</h1>
-                </div>
-                <div class="header-right">
-                    <h4> Beta Testing</h4>
-                    <h4>Administator</h4>
-                </div>
-            </div>
-        </div>
-
+        <div id="header"></div>
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'manage-teams')" id="defaultOpen">Manage Teams</>
             <button class="tablinks" onclick="openTab(event, 'create-competition')" >Create Competition</button>
@@ -131,7 +120,6 @@
                     </select>
                     <button class="button select" onclick="loadCompetition()"> Select Competition </button>
                     <button class="button select" onclick="openCompetition()"> Open Competition </button>
-                    <!-- <button class="button delete" onclick="deleteConpetition()"> Delete Competition </button> -->
                 </div>
             
                 <div class="row info">
@@ -161,6 +149,7 @@
         </div>
 
         <script>
+            $('#header').load('../header.php');
             function openTab(evt, cityName) {
                 var i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");

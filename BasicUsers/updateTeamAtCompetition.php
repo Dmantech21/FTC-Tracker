@@ -2,7 +2,9 @@
     header("Content-type: application/json");
     session_start();
 
-    $eventId = $_GET['eventId'];
+    $eventId = $_GET['competitionId'];
+    $teamId = $_GET['teamId'];
+    $attribute = $_GET['attribute'];
 
     $dbLocation = $_SESSION['location'];
     $dbUser = $_SESSION['dbUser'];
@@ -11,12 +13,8 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
-    $conn->query("UPDATE Event SET Open = 0;");
-
-    $conn->query("UPDATE Event 
-        SET Open = 1
-        WHERE Id = '$eventId'");
-
+    $result = $conn->query("UPDATE TeamEvent SET $attribute = 1 WHERE TeamId = $teamId AND EventId = $eventId;");
+    
     echo("{}");
 
     $conn->close();
