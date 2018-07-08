@@ -61,3 +61,8 @@ select {
   width: 150px;
   text-align: center;
 }
+
+.center {
+  margin-top: 20%;
+  margin-left: 42%;
+}

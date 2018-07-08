@@ -33,9 +33,9 @@
     </head>
     <body>
         <div id="header"></div>
-        <div>
+        <div class="center">
             <?php
-                $result = $conn->query("SELECT * FROM Event WHERE Open = 1;");
+                $result = $conn->query("SELECT Id FROM Event WHERE Open = 1;");
                 $rs = $result->fetch_array(MYSQLI_ASSOC);
                 $competitionId = $rs["Id"];
             ?>
@@ -54,10 +54,10 @@
                         $attribute = '1';
                     }
 
-                    $results = $conn->query("SELECT * FROM TeamEvent AS te JOIN Event AS e ON te.EventId = e.Id WHERE te." . $attribute . " = 0 AND e.Open = 1;");
+                    $results = $conn->query("SELECT Team.TeamNumber, Team.Name FROM TeamEvent JOIN (Team, Event) ON (Team.TeamNumber = TeamEvent.TeamId AND TeamEvent.EventId = Event.Id) WHERE Event.Open = 1;");
                     $teams = array();
                     while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
-                        echo ("<option value='" . $rs["TeamId"] . "'>" .  $rs["TeamId"]. "</option>");
+                        echo ("<option value='" . $rs["TeamNumber"] . "'>" .  $rs["TeamNumber"] . " - " . $rs["Name"] . "</option>");
                         $teams[] = $rs;
                     }  
                 ?>

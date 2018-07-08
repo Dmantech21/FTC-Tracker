@@ -40,9 +40,9 @@
                             user.Role === 'Judging') {
                         window.location.href = './BasicUsers/checkin.php';
                     } else if (user.Role === 'Queuer') {
-                        window.location.href = './queuing.php';
+                        window.location.href = './Queueing/queueing.php';
                     } else if (user.Role === 'Guest') {
-                        window.location.href = './competition.php'
+                        window.location.href = './Pits/competition.php'
                     } else {
                         window.location.reload();
                     }
