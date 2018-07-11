@@ -106,9 +106,14 @@
             <h3 style="rgb(6, 42, 70); text-decoration: none;">Edit Competition </h3>
             <p style="rgb(6, 42, 70); text-decoration: none;">Add/Remove Teams or Import Matches </p>
             <div class="row">
-                <div class="teams">
+                <div class="teams column">
+                    <?php
+                        $results = $conn->query("SELECT * FROM Event WHERE Open = 1");
+                        $rs = $results->fetch_array(MYSQLI_ASSOC);
+                        echo('<div><label> Active Competition: ' . $rs["Name"] . '</div></br>');
+                    ?>
                     <select id="competitions">
-                        <option value="" disabled selected>Select Competition</option>
+                        <option value="null" disabled selected>Select Competition</option>
                         <?php
                             $results = $conn->query("SELECT * FROM Event");
                             $events = array();
@@ -118,8 +123,8 @@
                             }
                         ?>
                     </select>
-                    <button class="button select" onclick="loadCompetition()"> Select Competition </button>
-                    <button class="button select" onclick="openCompetition()"> Open Competition </button>
+                    <button class="button select teams" onclick="loadCompetition()"> Select Competition </button>
+                    <button class="button select teams" onclick="openCompetition()"> Open Competition </button>
                 </div>
             
                 <div class="row info">
@@ -142,7 +147,12 @@
                             <input type ="text" id="editEventName"></input>
                         </div>
                         </br>
-                        <button type="submit" class="button select save" onclick="updateEvent()">Save Competition</button>
+                        <label class="button select"><input type="file" name="fileToUpload" id="fileToUpload" class="button select save"/>Select Match File</label>
+                        <button class="button select" onclick="uploadFile()">Upload File</button>
+                        </br>
+                        <button type="submit" class="button select" onclick="updateEvent()">Save Competition</button>
+                        </br>
+                        <label id="status"></label>
                     </div>
                 </div>
             </div>
@@ -150,6 +160,35 @@
 
         <script>
             $('#header').load('../header.php');
+
+            document.getElementById('fileToUpload').onchange = function(){
+                let fileName = document.getElementById('fileToUpload').files[0].name;
+                $('#status')[0].innerText = `${fileName} Selected`;
+            };
+            
+            function uploadFile(){
+                var file = document.getElementById('fileToUpload').files[0];
+                let competition = JSON.parse($('#competitions option:selected').val());
+                if(competition == null) {
+                    $('#status')[0].innerText = 'Please Select Competition To Add Matches To';
+                    return;
+                }
+                if(file == null) {
+                    $('#status')[0].innerText = 'Please Choose A File To Upload';
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function(progressEvent){
+                    var lines = this.result.split('\n');
+                    for(var line = 0; line < lines.length; line++){
+                        let arr = lines[line].split('|');
+                        $.get(`./createMatch.php?red1=${arr[5]}&red2=${arr[6]}&blue1=${arr[8]}&blue2=${arr[9]}&matchNumber=${line+1}&eventId=${competition.Id}`, function(result){});
+                            $('#status')[0].innerText = `Match ${line+1} Created!`;
+                    }
+                };
+                reader.readAsText(file);
+            };
+
             function openTab(evt, cityName) {
                 var i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");
@@ -244,7 +283,9 @@
                 let event = JSON.parse($('#competitions option:selected').val())
                 let eventId = event.Id;
                 
-                $.get(`./setOpenCompetition.php?eventId=${eventId}`, function(result){});
+                $.get(`./setOpenCompetition.php?eventId=${eventId}`, function(result){
+                    window.location.reload();
+                });
             }
 
             // Get the element with id="defaultOpen" and click on it

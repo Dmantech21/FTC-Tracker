@@ -176,3 +176,7 @@ caption{
     overflow-y: scroll;
     display: block;
 }
+
+.largeFont {
+    font-size: 24px;
+}
