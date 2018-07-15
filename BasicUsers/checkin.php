@@ -54,7 +54,7 @@
                         $attribute = '1';
                     }
 
-                    $results = $conn->query("SELECT Team.TeamNumber, Team.Name FROM TeamEvent JOIN (Team, Event) ON (Team.TeamNumber = TeamEvent.TeamId AND TeamEvent.EventId = Event.Id) WHERE Event.Open = 1;");
+                    $results = $conn->query("SELECT Team.TeamNumber, Team.Name FROM TeamEvent JOIN (Team, Event) ON (Team.TeamNumber = TeamEvent.TeamId AND TeamEvent.EventId = Event.Id) WHERE Event.Open = 1 AND TeamEvent." . $attribute . " = 0;");
                     $teams = array();
                     while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
                         echo ("<option value='" . $rs["TeamNumber"] . "'>" .  $rs["TeamNumber"] . " - " . $rs["Name"] . "</option>");
