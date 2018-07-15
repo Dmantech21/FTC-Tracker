@@ -32,25 +32,25 @@
             if($team['IsCheckedIn'] == 1) {
                 echo('<td><i class="material-icons" >check_circle</i></td>');
             } else {
-                echo('<td><i class="material-icons" >close</i></td>'); 
+                echo('<td></td>'); 
             }
 
             if($team['PassedRobotInspection'] == 1) {
                 echo('<td><i class="material-icons" >check_circle</i></td>');
             } else {
-                echo('<td><i class="material-icons" >close</i></td>'); 
+                echo('<td></td>'); 
             }
 
             if($team['PassedFieldInspection'] == 1) {
                 echo('<td><i class="material-icons" >check_circle</i></td>');
             } else {
-                echo('<td><i class="material-icons" >close</i></td>'); 
+                echo('<td></td>'); 
             }
 
             if($team['ReadyForJudging'] == 1) {
                 echo('<td><i class="material-icons" >check_circle</i></td>');
             } else {
-                echo('<td><i class="material-icons" >close</i></td>'); 
+                echo('<td></td>'); 
             }
 
             echo('</tr>');
