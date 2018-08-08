@@ -1,0 +1,182 @@
+body {
+    background: transparent url(../gradient.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: arial, sans-serif;
+  }
+  .header{
+    width:95%;
+    margin: 0 auto;
+  }
+  .header-content{
+    padding: 0 0 0 2em;
+  }
+  .header-title{
+    float: left;
+    width: 70%;
+    margin-top: -0.6em;
+  }
+  .header-right{
+    text-align: right;
+    margin-right: 3em;
+  }
+
+  .tab {
+    overflow: hidden;
+    border: 1px solid #CCC;
+    background-color: rgb(6, 42, 70);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: 1px solid #CCC;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #CCC;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #6CA7D4;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #CCC;
+    color: rgb(6, 42, 70);
+}
+
+.tab button {
+  width: 50%;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 2px solid #CCC;
+    border-top: none;
+    flex-direction: row;
+    background-color: #CCC;
+    margin-bottom: 2em;
+}
+
+#header{
+  border-radius: 25px;
+  background: #CCC;
+  color: rgb(6, 42, 70);
+  padding: 20px;
+  margin-bottom: 2em;
+}
+
+.button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #CCC;
+  font-size: 12px;
+  
+  padding: 10px 15px 10px 15px;
+  text-decoration: none;
+  margin-top: 0.4em;
+}
+
+.select {
+    background: rgb(6, 42, 70);
+}
+
+.select:hover {
+    background: #313C74;
+}
+
+.save {
+    margin-left: 75px;
+    width: 100px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+}
+
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+  background-color: #CCC;
+  color: rgb(6, 42, 70);
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(6, 42, 70);
+    color: #CCC;
+}
+
+tr:nth-child(even) {
+    background-color: #CCC;
+    color: rgb(6, 42, 70);;
+}
+
+caption{
+  font-size: large;
+  font-weight: bold;
+  margin: 1em 0 0.6em 0;
+}
+
+.tableBodyScroll tbody {
+  display: block;
+  max-height: 575px;
+  overflow-y: scroll;
+}
+
+.tableBodyScroll thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    font-size: 22px;
+}
+
+.teamRed {
+    border-radius: 10px;
+    border: 5px solid #df0000;
+    text-align: center;
+    height: 50px;
+}
+
+.teamBlue {
+    border-radius: 10px;
+    border: 5px solid #0000df;
+    text-align: center;
+    height: 50px;
+}
+
+.matches {
+    max-height: 580px;
+    overflow-y: scroll;
+    display: block;
+}
+
+.largeFont {
+    font-size: 24px;
+}

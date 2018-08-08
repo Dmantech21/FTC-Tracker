@@ -1,5 +1,5 @@
 body {
-    background: transparent url(gradient.jpeg) no-repeat center center fixed; 
+    background: transparent url(../gradient.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -29,7 +29,7 @@ body {
   }
 
   .remove-teams, .teams {
-    width: 35%;
+    width: 30%;
   }
 
   .add-team, .info {
@@ -97,21 +97,33 @@ body {
     font-family: Arial;
     color: #CCC;
     font-size: 12px;
-    background: rgb(6, 42, 70);
+    
     padding: 10px 15px 10px 15px;
     text-decoration: none;
     margin-top: 0.4em;
   }
+
+  .select {
+    background: rgb(6, 42, 70);
+  }
+
+  .delete {
+    background: rgb(187, 0, 0);
+  }
   
-  .button:hover {
+  .select:hover {
     background: #313C74;
+  }
+
+  .delete:hover {
+    background: rgb(255, 28, 28);
   }
   
   select {
     background-color:  rgb(6, 42, 70);
     color: #CCC;
     height: 33px;
-    width: 150px;
+    width: 180px;
     text-align: center;
   }
   
@@ -131,9 +143,13 @@ body {
 
   .save {
     margin-left: 75px;
-    width: 100px;
+    width: 150px;
   }
 
   .pad-top {
     padding-top: 25px;
+  }
+
+  input[type="file"] {
+    display: none;
   }

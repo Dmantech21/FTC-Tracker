@@ -2,8 +2,8 @@
     header("Content-type: application/json");
     session_start();
 
-    $date = $_GET['date'];
-    $eventName = $_GET['eventName'];
+    $teamNumber = $_GET['teamNumber'];
+    $teamName = $_GET['teamName'];
 
     $dbLocation = $_SESSION['location'];
     $dbUser = $_SESSION['dbUser'];
@@ -12,18 +12,11 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
-    $conn->query("INSERT INTO Event (Id, Name, Date, CurrentMatch)
+    $conn->query("INSERT INTO  Team (TeamNumber, Name)
         VALUES (
-        null, '$eventName', '$date', 0
+        $teamNumber, '$teamName'
         );");
-
-    $results = $conn->query("SELECT * FROM Event 
-        WHERE Name = '$eventName'");
     
-    $row = $results->fetch_array(MYSQLI_ASSOC);
-
-    $json = json_encode($row);
-    echo($json);
-
+    echo("{}");
     $conn->close();
 ?>

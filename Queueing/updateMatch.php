@@ -2,8 +2,9 @@
     header("Content-type: application/json");
     session_start();
 
-    $teamId = $_GET['teamId'];
     $eventId = $_GET['eventId'];
+    $matchNumber = $_GET['matchNumber'];
+    $attribute = $_GET['attribute'];
 
     $dbLocation = $_SESSION['location'];
     $dbUser = $_SESSION['dbUser'];
@@ -12,11 +13,8 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
-    $conn->query("INSERT INTO TeamEvent (EventId, TeamId)
-        VALUES (
-        $eventId, $teamId
-        );");
-
+    $result = $conn->query("UPDATE EventMatch SET $attribute = 1 WHERE MatchNumber = $matchNumber AND EventId = $eventId;");
+    
     echo("{}");
 
     $conn->close();
