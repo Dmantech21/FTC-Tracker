@@ -50,7 +50,7 @@
             $('#match-view').load('matchPlay.php');
             setInterval(function () {
                 $('#match-view').load('matchPlay.php');
-            }, 20000);
+            }, 10000);
             let index = 0;
             setInterval(function () {
                 index = (index + 1) % 4;

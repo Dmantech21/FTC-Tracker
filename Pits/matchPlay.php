@@ -23,18 +23,24 @@
             $matchesToShow = $uncompletedMatchCount >= 5 ? 5 : $uncompletedMatchCount;
             for($i = 0; $i < $matchesToShow; $i++) {
                 $match = $matches[$i];
-                echo('<div class="column">');
+                echo('<div>');
                     echo('<div class="row largeFont" id="match' . $match['MatchNumber'] . '">Match: ' . $match['MatchNumber']);
                     if($i == 0) {
                         echo(' - Current Match');
                     } else if ($i == 1) {
                         echo(' - On Field Waiting');
                     }
-                    echo('</div></br>');
+                    echo('</div>');
 
                     echo('<div class="row">');
                         echo('<div class="column teamRed">Red1: ' . $match['Red1']);
                         if($match['Red1Queued'] == 1) {
+                            echo('&nbsp;<i class="material-icons" >check_circle</i>');
+                        }
+                        echo('</div>');
+
+                        echo('<div class="column teamRed">Red2: ' . $match['Red2']);
+                        if($match['Red2Queued'] == 1) {
                             echo('&nbsp;<i class="material-icons" >check_circle</i>');
                         }
                         echo('</div>');
@@ -45,21 +51,13 @@
                         }
                         echo('</div>');
 
-                    echo('</div></br>');
-
-                    echo('<div class="row">');
-                        echo('<div class="column teamRed">Red2: ' . $match['Red2']);
-                        if($match['Red2Queued'] == 1) {
-                            echo('&nbsp;<i class="material-icons" >check_circle</i>');
-                        }
-                        echo('</div>');
                         echo('<div class="column teamBlue">Blue 2: ' . $match['Blue2']);
                         if($match['Blue2Queued'] == 1) {
                             echo('&nbsp;<i class="material-icons" >check_circle</i>');
                         }
                         echo('</div>');
-                    echo('</div>');
 
+                    echo('</div>');
                 echo('</div></br>');
             }
         ?>

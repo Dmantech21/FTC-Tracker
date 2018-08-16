@@ -162,6 +162,7 @@ caption{
     border: 5px solid #df0000;
     text-align: center;
     height: 50px;
+    width: 25%;
 }
 
 .teamBlue {
@@ -169,6 +170,7 @@ caption{
     border: 5px solid #0000df;
     text-align: center;
     height: 50px;
+    width: 25%;
 }
 
 .matches {
