@@ -109,7 +109,7 @@ table {
 
 td, th {
     text-align: center;
-    padding: 8px;
+    padding: 6px;
 }
 
 th {
@@ -124,7 +124,7 @@ tr:nth-child(odd) {
 
 tr:nth-child(even) {
     background-color: #CCC;
-    color: rgb(6, 42, 70);;
+    color: rgb(6, 42, 70);
 }
 
 caption{

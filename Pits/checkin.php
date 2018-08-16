@@ -24,7 +24,7 @@
         while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
             $teams[] = $rs;
         }
-
+	echo('<tbody class="tableBody">');
         foreach($teams as $team) {
             echo('<tr>'
                     .'<td>' . $team['TeamId'] . '</td>');
@@ -55,5 +55,6 @@
 
             echo('</tr>');
         }
+	echo('</tbody>');
     ?>
 </table>

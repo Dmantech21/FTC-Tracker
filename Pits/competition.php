@@ -57,6 +57,13 @@
                 let y = (index) * 225;
                 $('.matches').animate({scrollTop: y},1000);
             }, 5000);
+	    let checkinIndex = 0;
+            setInterval(function () {
+                checkinIndex = (checkinIndex + 1) % 3;
+                let y = (checkinIndex) * 335;
+                $('.tableBody').animate({scrollTop: y},1000);
+            }, 3333);
+
 
             document.getElementById("defaultOpen").click();
 
