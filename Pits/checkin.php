@@ -62,6 +62,9 @@
 <script>
     setTimeout(() => { 
             let y = 675;
+            let tableRows = $('tr');
+            let index = tableRows.length - 18;
+            y = tableRows[index].offsetTop;
             $('.tableBody').animate({scrollTop: y},13000);
         }, 2000);
     setInterval(function () {
