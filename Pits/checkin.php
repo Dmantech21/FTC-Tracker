@@ -61,12 +61,12 @@
 
 <script>
     setTimeout(() => { 
-            let y = 550;
+            let y = 675;
             $('.tableBody').animate({scrollTop: y},13000);
         }, 2000);
     setInterval(function () {
         setTimeout(() => { 
-            let y = 550;
+            let y = 675;
             $('.tableBody').animate({scrollTop: y},13000);
         }, 2000);
     }
