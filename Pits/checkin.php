@@ -19,7 +19,7 @@
 
         $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
         
-        $results = $conn->query("SELECT * FROM TeamEvent AS te JOIN Event AS e ON te.EventId = e.Id WHERE e.Open = 1 ORDER BY te.TeamId ASC;");
+        $results = $conn->query("SELECT * FROM TeamEvent AS te JOIN Event AS e ON te.EventId = e.Id WHERE e.Open = 1 AND (IsCheckedIn = 0 OR PassedRobotInspection = 0 OR PassedFieldInspection = 0 OR ReadyForJudging = 0) ORDER BY te.TeamId ASC;");
         $teams = array();
         while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
             $teams[] = $rs;
@@ -58,3 +58,17 @@
 	echo('</tbody>');
     ?>
 </table>
+
+<script>
+    setTimeout(() => { 
+            let y = 550;
+            $('.tableBody').animate({scrollTop: y},13000);
+        }, 2000);
+    setInterval(function () {
+        setTimeout(() => { 
+            let y = 550;
+            $('.tableBody').animate({scrollTop: y},13000);
+        }, 2000);
+    }
+    , 15000);
+</script>
