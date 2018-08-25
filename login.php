@@ -1,7 +1,7 @@
 <?php
     header("Content-type: application/json");
     session_start();
-    $conn = new mysqli();
+    $conn = new mysqli("localhost", "phpmyadmin", "canonRebelt1i", "phpmyadmin");
     $checkLoggedIn = $_GET['checkLoggedIn'];
 
     if (isset($_SESSION['logged_In']) && $_SESSION['logged_In'] == true && $checkLoggedIn) {
@@ -28,10 +28,10 @@
         $_SESSION['userName'] = $row['UserName'];
         $_SESSION['Role'] = $row['Role'];
         $_SESSION['timeout'] = time();
-        $_SESSION['location'] = "";
-        $_SESSION['dbUser'] = "";
-        $_SESSION['dbPassword'] = "";
-        $_SESSION['dbName'] = "";
+        $_SESSION['location'] = "localhost";
+        $_SESSION['dbUser'] = "phpmyadmin";
+        $_SESSION['dbPassword'] = "canonRebelt1i";
+        $_SESSION['dbName'] = "phpmyadmin";
 
         $json = json_encode($row);
         echo($json);

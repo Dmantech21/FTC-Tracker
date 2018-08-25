@@ -45,19 +45,13 @@
             $('#check-in').load('checkin.php');
             setInterval(function () {
                 $('#check-in').load('checkin.php');
-            }, 10000);
+            }, 15000);
 
             $('#match-view').load('matchPlay.php');
             setInterval(function () {
                 $('#match-view').load('matchPlay.php');
-            }, 20000);
-            let index = 0;
-            setInterval(function () {
-                index = (index + 1) % 4;
-                let y = (index) * 225;
-                $('.matches').animate({scrollTop: y},1000);
-            }, 5000);
-
+            }, 10000);
+            
             document.getElementById("defaultOpen").click();
 
             function openTab(evt, cityName) {
