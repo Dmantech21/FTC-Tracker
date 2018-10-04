@@ -30,25 +30,25 @@
                     .'<td>' . $team['TeamId'] . '</td>');
 
             if($team['IsCheckedIn'] == 1) {
-                echo('<td><i class="material-icons" >check_circle</i></td>');
+                echo('<td><i class="material-icons md-18" >check_circle</i></td>');
             } else {
                 echo('<td></td>'); 
             }
 
             if($team['PassedRobotInspection'] == 1) {
-                echo('<td><i class="material-icons" >check_circle</i></td>');
+                echo('<td><i class="material-icons md-18" >check_circle</i></td>');
             } else {
                 echo('<td></td>'); 
             }
 
             if($team['PassedFieldInspection'] == 1) {
-                echo('<td><i class="material-icons" >check_circle</i></td>');
+                echo('<td><i class="material-icons md-18" >check_circle</i></td>');
             } else {
                 echo('<td></td>'); 
             }
 
             if($team['ReadyForJudging'] == 1) {
-                echo('<td><i class="material-icons" >check_circle</i></td>');
+                echo('<td><i class="material-icons md-18" >check_circle</i></td>');
             } else {
                 echo('<td></td>'); 
             }
@@ -61,15 +61,16 @@
 
 <script>
     setTimeout(() => { 
-            let y = 675;
             let tableRows = $('tr');
             let index = tableRows.length - 18;
-            y = tableRows[index].offsetTop;
+            let y = tableRows[index].offsetTop + 50;
             $('.tableBody').animate({scrollTop: y},13000);
         }, 2000);
     setInterval(function () {
         setTimeout(() => { 
-            let y = 675;
+            let tableRows = $('tr');
+            let index = tableRows.length - 18;
+            let y = tableRows[index].offsetTop + 50;
             $('.tableBody').animate({scrollTop: y},13000);
         }, 2000);
     }

@@ -6,7 +6,7 @@
     <body>
         <?php
         session_start();
-        $conn = new mysqli("localhost", "phpmyadmin", "canonRebelt1i", "phpmyadmin");
+        $conn = new mysqli("localhost", "phpmyadmin", "IndianaFIRST", "phpmyadmin");
 
         if ($_SESSION['timeout'] + 600 < time()) {
             $_SESSION['logged_In'] = false;
