@@ -3,8 +3,6 @@ body {
     color: #FFFFFF;
     font-family: Arial, sans-serif;
   }
-
-
 .button {
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
@@ -16,7 +14,6 @@ body {
     width: 150px;
     height: 50px;
   }
-
 .button:hover {
     background-color: rgb(0, 65, 116);
 }
@@ -24,11 +21,9 @@ body {
 .login {
     margin-left: 50%;
 }
-
 .large-font {
     font-size: 36px;
 }
-
 .medium-font {
     font-size: 28px;
 }
