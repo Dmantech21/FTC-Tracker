@@ -38,29 +38,6 @@
 
         <?php include '../headerDisplay.php'; ?>
 
-        <!--
-		<header>
-			<div class="header-left">
-				<img src="../images/FIRST_Horz_RGB.png" width="287" height="75" class="logo"/>
-			</div>
-			<div class="header-center">
-				<h1>FTC Competition Tracker</h1>
-				<nav>
-					<ul>
-						<li>Check In</li> |
-						<li>Match View</li>
-					</ul>
-				</nav>
-
-			</div>
-			<div class="header-right">
-				<h2>User: <?php echo($_SESSION["Role"])?></h2> FILL IN VARIABLE FOR USER LATER
-				<button class="button button-fade" type="submit" onclick="logout()">Log Out</button>
-				 DELETE the log out button and make it so that when a user clicks on the name of who's logged in
-				it will log out. Makes the UI on this page easy (but still gives functionality to log out)
-			</div>
-		</header>-->
-
 		<table id="displayTable">
 			<thead>
 				<tr>
@@ -71,50 +48,45 @@
 					<th>Ready For Judging</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-					<td>Smith</td>
-					<td></td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-				</tr>
-				<tr>
-					<td>Jill</td>
-					<td>Smith</td>
-					<td>50</td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Eve</td>
-					<td>Jackson</td>
-					<td>94</td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-					<td></td>
-					<td>Smith</td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-				</tr>
-				<tr>
-					<td>Eve</td>
-					<td>Jackson</td>
-					<td>94</td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Eve</td>
-					<td>Jackson</td>
-					<td>94</td>
-					<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>
-					<td></td>
-				</tr>
-			</tbody>
+            <?php
+                $results = $conn->query("SELECT * FROM TeamEvent AS te JOIN Event AS e ON te.EventId = e.Id WHERE e.Open = 1 AND (IsCheckedIn = 0 OR PassedRobotInspection = 0 OR PassedFieldInspection = 0 OR ReadyForJudging = 0) ORDER BY te.TeamId ASC;");
+                $teams = array();
+                while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
+                    $teams[] = $rs;
+                }
+                echo('<tbody class="tableBody">');
+                foreach($teams as $team) {
+                    echo('<tr>'
+                    .'<td>' . $team['TeamId'] . '</td>');
+
+                    if($team['IsCheckedIn'] == 1) {
+                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                    } else {
+                        echo('<td></td>');
+                    }
+
+                    if($team['PassedRobotInspection'] == 1) {
+                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>');
+                    } else {
+                        echo('<td></td>');
+                    }
+
+                    if($team['PassedFieldInspection'] == 1) {
+                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                    } else {
+                        echo('<td></td>');
+                    }
+
+                    if($team['ReadyForJudging'] == 1) {
+                        echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                    } else {
+                        echo('<td></td>');
+                    }
+
+                    echo('</tr>');
+                }
+                echo('</tbody>');
+            ?>
 		</table>
 	</main>
 
