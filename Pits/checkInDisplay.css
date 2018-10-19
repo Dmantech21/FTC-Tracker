@@ -5,10 +5,6 @@ body {
 .checkImg {
 	height:50px;
 }
-#displayTable {
-	border-collapse:collapse;
-	width: 90%;
-}
 tr:nth-child(even) {
     background-color: #0066B3;
 	color: white;
