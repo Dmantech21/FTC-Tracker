@@ -13,3 +13,14 @@ tr:nth-child(even) {
 	background-color: white;
 	color: #333333;
 }
+#displayTable tbody {
+	display: block;
+	max-height: 575px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#displayTable thead, tbody, tr{
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
