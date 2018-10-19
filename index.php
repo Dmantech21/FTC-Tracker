@@ -32,8 +32,10 @@
 
 	<main>
 		<div id="login">
-			<input type="text" id="user" value="Username"></input>
-			<input type="password" id="psw" value="password"></input>
+			<img src="../FTC-Tracker/images/FIRST_HorzRGB_reverse.png" class="logo" alt="FIRST logo"/>
+            <br />
+			<input type="text" id="user" placeholder="Username"></input>
+			<input type="password" id="psw" placeholder="password"></input>
 			<br />
 			<button class="button button-fade" type="submit" onclick="login()">Login</button>
 		</div>

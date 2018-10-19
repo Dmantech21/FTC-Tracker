@@ -6,7 +6,7 @@
 <html>
 <header>
     <div class="header-left">
-        <img src="../images/FIRST_Horz_RGB.png" width="287" height="75" class="logo"/>
+        <img src="../images/FIRST_Horz_RGB.png" class="logo"/>
     </div>
     <div class="header-center">
         <h1>FTC Competition Tracker</h1>

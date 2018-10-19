@@ -15,7 +15,7 @@
 	<main>
 		<header>
 			<div class="header-left">
-				<img src="../images/FIRST_HorzRGB_reverse.png" width="287" height="75" class="logo" alt="FIRST logo"/>
+				<img src="../images/FIRST_HorzRGB_reverse.png"class="logo" alt="FIRST logo"/>
 			</div>
 			<div class="header-center">
 				<h1>FTC Competition Tracker</h1>
