@@ -112,8 +112,3 @@
 
 </body>
 </html>
-
-
-<script>
-
-</script>
