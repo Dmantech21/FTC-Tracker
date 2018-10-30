@@ -106,7 +106,7 @@ table {
 	margin-left: 5%;
 	margin-right: 5%;
 }
-table, td , th{
+table {
 	border: 2px solid #333333;
 }
 th {
@@ -129,8 +129,6 @@ th {
 	height: 75px;
 	width: 287px;
 }
-
-/*TESTING*/
 #login {
 	margin-top: 10px;
 }

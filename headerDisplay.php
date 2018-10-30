@@ -12,8 +12,8 @@
         <h1>FTC Competition Tracker</h1>
         <nav>
             <ul>
-                <li>Check In</li> |
-                <li>Match View</li>
+                <a href="../Pits/checkInDisplay.php"><li>Check In</li></a> |
+                <a href="../Pits/matchViewDisplay.php"><li>Match View</li></a>
             </ul>
         </nav>
 
