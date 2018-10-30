@@ -54,31 +54,51 @@
                 while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
                     $teams[] = $rs;
                 }
+
+                $rowCount = 0;
+
                 echo('<tbody class="tableBody">');
                 foreach($teams as $team) {
+                    $rowCount++;
                     echo('<tr>'
                     .'<td>' . $team['TeamId'] . '</td>');
 
                     if($team['IsCheckedIn'] == 1) {
-                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        if($rowCount % 2 == 0) {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-white.png" alt="check"/></td>');
+                        } else {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        }
                     } else {
                         echo('<td></td>');
                     }
 
                     if($team['PassedRobotInspection'] == 1) {
-                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" /></td>');
+                        if($rowCount % 2 == 0) {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-white.png" alt="check"/></td>');
+                        } else {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        }
                     } else {
                         echo('<td></td>');
                     }
 
                     if($team['PassedFieldInspection'] == 1) {
-                    echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        if($rowCount % 2 == 0) {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-white.png" alt="check"/></td>');
+                        } else {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        }
                     } else {
                         echo('<td></td>');
                     }
 
                     if($team['ReadyForJudging'] == 1) {
-                        echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        if($rowCount % 2 == 0) {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-white.png" alt="check"/></td>');
+                        } else {
+                            echo('<td><img class="checkImg" src="../images/icons8-checkmark-filled-100-black.png" alt="check"/></td>');
+                        }
                     } else {
                         echo('<td></td>');
                     }
