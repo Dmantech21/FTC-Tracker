@@ -21,7 +21,7 @@
 	<title>Match View Display</title>
 
 	<link rel="stylesheet" type="text/css" href="../main.css">
-    <link rel="stylesheet" type="text/css" href="checkInDisplay.css">
+    <link rel="stylesheet" type="text/css" href="display.css">
  	<!-- <link rel="stylesheet" type="text/css" href="matchPlayDisplay.css">-->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
