@@ -64,7 +64,7 @@
                             user.Role === 'FieldInspector' ||
                             user.Role === 'Receptionist' ||
                             user.Role === 'Judging') {
-                        window.location.href = './BasicUsers/checkIn.php';
+                        window.location.href = './BasicUsers/checkInTeams.php';
                     } else if (user.Role === 'Queuer') {
                         window.location.href = './Queueing/queueing.php';
                     } else if (user.Role === 'Guest') {

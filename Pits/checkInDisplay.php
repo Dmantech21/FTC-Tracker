@@ -111,3 +111,17 @@
 
 </body>
 </html>
+
+<script>
+
+    function scrollTable (){
+        let tableRows = $('tr');
+        let index = tableRows.length - 18;
+        let y = tableRows[index].offsetTop + 50;
+        $('.tableBody').animate({scrollTop: y}, 10000);
+    }
+
+    setTimeout(scrollTable, 2000);
+    setTimeout(function(){location.reload(); }, 12000);
+
+</script>
