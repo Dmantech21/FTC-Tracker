@@ -14,3 +14,8 @@ This video shows the original UI, user interface, the second version of the UI i
 
 ### Contributions
 If you would like to contribute please reach out and submit an issue and/or create a pull request.
+
+#### Past Contributors
+* Dylan Mangold
+* Mike Schueren
+* Mikaela Caron
