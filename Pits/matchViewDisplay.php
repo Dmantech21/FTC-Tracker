@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     $dbLocation = $_SESSION['location'];
     $dbUser = $_SESSION['dbUser'];
     $dbPassword = $_SESSION['dbPassword'];

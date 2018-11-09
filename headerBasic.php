@@ -9,17 +9,10 @@
 </head>
 <header>
     <div class="header-left">
-        <img src="../images/FIRST_Horz_RGB.png" class="logo"/>
+        <img src="../images/FIRST_HorzRGB_reverse.png" class="logo"/>
     </div>
     <div class="header-center">
         <h1>FTC Competition Tracker</h1>
-
-        <nav>
-            <ul>
-                <a href="../Pits/checkInDisplay.php"><li>Check In</li></a> |
-                <a href="../Pits/matchViewDisplay.php"><li>Match View</li></a>
-            </ul>
-        </nav>
 
     </div>
     <div class="header-right">

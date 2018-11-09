@@ -34,18 +34,8 @@
 <body>
 
 	<main>
-		<header>
-			<div class="header-left">
-				<img src="../images/FIRST_HorzRGB_reverse.png"class="logo" alt="FIRST logo"/>
-			</div>
-			<div class="header-center">
-				<h1>FTC Competition Tracker</h1>
-			</div>
-			<div class="header-right">
-				<h2>User: <?php echo($_SESSION["Role"]);?></h2> <!-- FILL IN VARIABLE FOR USER LATER-->
-				<button class="button button-fade" type="submit" onclick="logout()">Log Out</button>
-			</div>
-		</header>
+
+		<?php include '../headerBasic.php'; ?>
 
         <?php
             $result = $conn->query("SELECT Id FROM Event WHERE Open = 1;");

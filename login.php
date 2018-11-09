@@ -1,6 +1,7 @@
 <?php
-    header("Content-type: application/json");
     session_start();
+    header("Content-type: application/json");
+
     $conn = new mysqli("localhost", "phpmyadmin", "IndianaFIRST", "phpmyadmin");
     $checkLoggedIn = $_GET['checkLoggedIn'];
 
