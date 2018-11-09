@@ -40,100 +40,49 @@ tr:nth-child(even) {
 }
 
 /*** matchViewDisplay  ***/
-.slot1 {
-    grid-area: slot1;
-    justify-self: stretch;
-}
-
-.slot2 {
-    grid-area: slot2;
-    justify-self: stretch;
-}
-
-.slot3 {
-    grid-area: slot3;
-    justify-self: stretch;
-}
-
-.slot4 {
-    grid-area: slot4;
-    justify-self: stretch;
-}
-
-.card-holder {
-    display: grid;
-    grid-template-areas:
-        'slot1 slot2'
-        'slot3 slot4';
-    grid-gap: 20px 30px;
-    margin: 10px 0px;
-    justify-items: center;
+.matchTitle {
+    text-align: center;
 }
 
 .card {
-    /*Location*/
-    display: grid;
-    /*Style*/
-    box-shadow: 3px 3px 25px 10px rgba(153, 153, 154, .5);
-        -moz-box-shadow: 3px 3px 25px 10px rgba(153, 153, 154, .5);
-        -webkit-box-shadow: 3px 3px 25px 10px rgba(153, 153, 154, .5);
-    border-radius: 30px;
-        -moz-border-radius: 30px;
-        -webkit-border-radius: 30px;
-    border: 2px solid #9A989A;
-    text-align: center;
+    float: left;
+    width: 48%;
+    border-radius: 15px;
+    height: 290px;
+    box-sizing: border-box;
+        -webkit-box-sizing: border-box;
     margin: 10px;
+    -webkit-box-shadow: 0 0 25px 10px rgba(153, 153, 154, .7);
+    box-shadow: 0 0 25px 10px rgba(153, 153, 154, .7);
 }
 
-.container {
-    display: grid;
-    grid-template-areas:
-        'titleMatch titleMatch'
-        'red1 red2'
-        'redCheck redCheck'
-        'blue1 blue2'
-        'blueCheck blueCheck';
-    grid-gap: 10px;
-    margin: 10px 0px;
-    justify-items: center;
-}
-
-.titleMatch {
-    grid-area: titleMatch;
-}
-
-.red1 {
-    grid-area: red1;
-}
-
-.blue1 {
-    grid-area: blue1;
-}
-
-.red2 {
-    grid-area: red2;
-}
-
-.blue2 {
-    grid-area: blue2;
-}
-
-.teamRed {
+.red {
     background-color: #ED1C24;
     color: white;
-    width: 90%;
-    padding: 10px;
     border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
+    float: left;
+    width: 46%;
+    box-sizing: border-box;
+    height: 90px;
+    margin: 1% 2%;
+    padding: 2%;
 }
 
-.teamBlue {
+.blue {
     background-color: #0066B3;
     color: white;
-    width: 90%;
-    padding: 10px;
     border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
+    float: left;
+    width: 46%;
+    box-sizing: border-box;
+    height: 90px;
+    margin: 1% 2%;
+    padding: 2%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .card {
+        float: none;
+        width: 100%;
+    }
 }
