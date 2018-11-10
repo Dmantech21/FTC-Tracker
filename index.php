@@ -66,7 +66,7 @@
                             user.Role === 'Judging') {
                         window.location.href = './BasicUsers/checkInTeams.php';
                     } else if (user.Role === 'Queuer') {
-                        window.location.href = './Queueing/queueing.php';
+                        window.location.href = './Que/queueingMatches.php';
                     } else if (user.Role === 'Guest') {
                         window.location.href = './Pits/checkInDisplay.php'
                     } else {
