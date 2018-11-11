@@ -1,9 +1,6 @@
 <?php
     session_start();
 ?>
-
-<!DOCTYPE html>
-<html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -20,7 +17,6 @@
         <button class="button button-fade" type="submit" onclick="logOut()">Log Out</button>
     </div>
 </header>
-</html>
 
 
 <script>
