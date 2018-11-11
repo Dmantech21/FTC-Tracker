@@ -59,6 +59,10 @@ input[type=text], [type=password] {
     color: white;
 }
 
+#login {
+    margin-top: 10px;
+}
+
 /*** HEADER ***/
 header {
     overflow: hidden;
@@ -127,25 +131,97 @@ th {
     padding: 20px;
 }
 
-#timeStampTable td {
-    padding: 10px;
-}
-
-#timeStampTable tr:nth-child(odd) {
-    background-color: #0066B3;
-    color: white;
-}
-
-#timeStampTable tr:nth-child(even) {
-    background-color: #FFFFFF;
-    color: #333333;
-}
-
 .logo {
     height: 75px;
     width: 287px;
 }
 
-#login {
-    margin-top: 10px;
+/*** QUEUER PAGE ***/
+.checkImg {
+    height: 50px;
+}
+.card {
+    border-radius: 25px;
+    background-color: #9A989A;
+    border: 3px solid white;
+    height: 310px;
+    width: 65%;
+    margin: 20px auto;
+
+}
+
+.btnBlue {
+    color: white;
+    padding: 8px 16px;/*was 16 32*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    cursor: pointer;
+	border-radius: 8px;
+	background-color: #9A989A;
+    border: 2px solid #0066B3;
+	font-weight: bold;
+}
+
+.btnBlue-fade:hover {
+    background-color: #0066B3;
+    color: white;
+}
+
+.team {
+    float: left;
+    height: 90px;
+    width: 25%;
+    line-height: 90px;
+}
+.check {
+    height: 90px;
+    float: left;
+    width:20%;
+    line-height: 90px;
+}
+
+.check img {
+    line-height: 90px;
+}
+
+.red {
+    text-align: end;
+}
+
+.blue {
+    text-align: end;
+}
+
+.completeMatch {
+    clear: both;
+}
+
+@media only screen and (max-width: 750px) {
+    .red {
+        width: 62%;
+        text-align: center;
+    }
+    .blue {
+        width: 62%;
+        text-align: center;
+    }
+    .check {
+        width: 10%;
+    }
+    .card {
+        height: 500px;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .card {
+        width: 90%;
+    }
 }

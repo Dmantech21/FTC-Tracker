@@ -30,67 +30,67 @@
 
 		<?php include '../headerDisplay.php'; ?>
 
-    <?php
-        $matchesToShow = $uncompletedMatchCount >= 4 ? 4 : $uncompletedMatchCount;
-        for ($i = 0; $i < $matchesToShow; $i++) {
-            $matchLoop = $matches[$i];
+        <?php
+            $matchesToShow = $uncompletedMatchCount >= 4 ? 4 : $uncompletedMatchCount;
+            for ($i = 0; $i < $matchesToShow; $i++) {
+                $matchLoop = $matches[$i];
 
-            echo('<div class="card">');
+                echo('<div class="card">');
 
-                echo('<h3 class="matchTitle">Match ' . $matchLoop['MatchNumber']);
-                if($i == 0) {
-                    echo(' - Current Match</h3>');
-                }
-                else if  ($i == 1) {
-                    echo(' - On Field Waiting</h3>');
-                }
-                else {
-                    echo('</h3>');
-                }
-
-                echo('<div class="red">');
-                    echo('Red 1: ' . $matchLoop['Red1']);
-                    echo('<br />');
-                    if($matchLoop['Red1Queued']) {
-                        echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
-                    } else {
-                        //do nothing
+                    echo('<h3 class="matchTitle">Match ' . $matchLoop['MatchNumber']);
+                    if($i == 0) {
+                        echo(' - Current Match</h3>');
                     }
-                echo('</div>');//end red1
-
-                echo('<div class="red">');
-                    echo('Red 2: ' . $matchLoop['Red2']);
-                    echo('<br />');
-                    if($matchLoop['Red2Queued']) {
-                        echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
-                    } else {
-                        //do nothing
+                    else if  ($i == 1) {
+                        echo(' - On Field Waiting</h3>');
                     }
-                echo('</div>');//end red2
-
-                echo('<div class="blue">');
-                    echo('Blue 1: ' . $matchLoop['Blue1']);
-                    echo('<br />');
-                    if($matchLoop['Blue1Queued']) {
-                        echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
-                    } else {
-                        //do nothing
+                    else {
+                        echo('</h3>');
                     }
-                echo('</div>');//end blue1
 
-                echo('<div class="blue">');
-                    echo('Blue 2: ' . $matchLoop['Blue2']);
-                    echo('<br />');
-                    if($matchLoop['Blue2Queued']) {
-                        echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
-                    } else {
-                        //do nothing
-                    }
-                echo('</div>');//end blue2
+                    echo('<div class="red">');
+                        echo('Red 1: ' . $matchLoop['Red1']);
+                        echo('<br />');
+                        if($matchLoop['Red1Queued']) {
+                            echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
+                        } else {
+                            //do nothing
+                        }
+                    echo('</div>');//end red1
 
-            echo('</div>');//end card div
-        }//end for loop
-    ?>
+                    echo('<div class="red">');
+                        echo('Red 2: ' . $matchLoop['Red2']);
+                        echo('<br />');
+                        if($matchLoop['Red2Queued']) {
+                            echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
+                        } else {
+                            //do nothing
+                        }
+                    echo('</div>');//end red2
+
+                    echo('<div class="blue">');
+                        echo('Blue 1: ' . $matchLoop['Blue1']);
+                        echo('<br />');
+                        if($matchLoop['Blue1Queued']) {
+                            echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
+                        } else {
+                            //do nothing
+                        }
+                    echo('</div>');//end blue1
+
+                    echo('<div class="blue">');
+                        echo('Blue 2: ' . $matchLoop['Blue2']);
+                        echo('<br />');
+                        if($matchLoop['Blue2Queued']) {
+                            echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
+                        } else {
+                            //do nothing
+                        }
+                    echo('</div>');//end blue2
+
+                echo('</div>');//end card div
+            }//end for loop
+        ?>
 
 
 

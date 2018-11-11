@@ -1,9 +1,6 @@
 <?php
     session_start();
 ?>
-
-<!DOCTYPE html>
-<html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -29,7 +26,7 @@
         it will log out. Makes the UI on this page easy (but still gives functionality to log out) -->
     </div>
 </header>
-</html>
+
 
 
 <script>

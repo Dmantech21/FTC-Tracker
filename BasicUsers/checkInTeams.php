@@ -28,7 +28,6 @@
 <head>
 	<title>Check In</title>
 	<link rel="stylesheet" type="text/css" href="../main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
@@ -69,23 +68,6 @@
             <br />
 
         <button class="button button-fade" onclick="updateTeamAtEvent()"> Approve Team </button>
-
-		<div style="margin: 20px;">
-			<table id="timeStampTable" >
-				<thead>
-                    <tr>
-                        <th>Team Number</th>
-                        <th>Team Name</th>
-                        <th>Time Checked In</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td>
-                        <tr></tr>
-                    </td>
-                </tbody>
-			</table>
-		</div>
 
     </main>
 

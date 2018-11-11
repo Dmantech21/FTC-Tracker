@@ -18,8 +18,6 @@
     <div class="header-right">
         <h2>User: <?php echo($_SESSION["Role"])?></h2>
         <button class="button button-fade" type="submit" onclick="logOut()">Log Out</button>
-        <!-- DELETE the log out button and make it so that when a user clicks on the name of who's logged in,
-        it will log out. Makes the UI on this page easy (but still gives functionality to log out) -->
     </div>
 </header>
 </html>
