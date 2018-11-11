@@ -97,7 +97,7 @@
 
                     //completeMatch
                     echo('<div class="completeMatch">');
-                        echo('<button class="btnBlue btnBlue-fade" type="submit">Complete Match</button>');
+                        echo('<button class="btnBlue btnBlue-fade" type="submit" onclick="completeMatch(' . $matchLoop['EventId'] . ', ' . $matchLoop['MatchNumber'] . ')">Complete Match</button>');
                     echo('</div>');//end completeMatch
 
                 echo('</div>');//end div card
