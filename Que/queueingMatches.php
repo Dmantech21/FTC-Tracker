@@ -55,7 +55,7 @@
                     if($matchLoop['Red1Queued'] == 1) {
                         echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
                     } else {
-                        echo('<button class="btnBlue btnBlue-fade" type="submit">Check In</button>');
+                        echo('<button class="btnBlue btnBlue-fade" type="submit" onclick="queueTeam(\'Red1Queued\', ' . $matchLoop['MatchNumber'] . ', ' . $matchLoop['EventId'] . ')">Check In</button>');
                     }//end if Red1Queued
                     echo('</div>');//end check
 
@@ -67,7 +67,7 @@
                     if($matchLoop['Red2Queued'] == 1) {
                         echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
                     } else {
-                        echo('<button class="btnBlue btnBlue-fade" type="submit">Check In</button>');
+                        echo('<button class="btnBlue btnBlue-fade" type="submit" onclick="queueTeam(\'Red2Queued\', ' . $matchLoop['MatchNumber'] . ', ' . $matchLoop['EventId'] . ')">Check In</button>');
                     }//end if Red2Queued
                     echo('</div>');//end check
 
@@ -79,7 +79,7 @@
                     if($matchLoop['Blue1Queued'] == 1) {
                         echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
                     } else {
-                        echo('<button class="btnBlue btnBlue-fade" type="submit">Check In</button>');
+                        echo('<button class="btnBlue btnBlue-fade" type="submit" onclick="queueTeam(\'Blue1Queued\', ' . $matchLoop['MatchNumber'] . ', ' . $matchLoop['EventId'] . ')">Check In</button>');
                     }//end if Blue1Queued
                     echo('</div>');//end check
 
@@ -91,7 +91,7 @@
                     if($matchLoop['Blue2Queued'] == 1) {
                         echo('<img src="../images/icons8-checkmark-filled-100-white.png" class="checkImg" alt="check">');
                     } else {
-                        echo('<button class="btnBlue btnBlue-fade" type="submit">Check In</button>');
+                        echo('<button class="btnBlue btnBlue-fade" type="submit" onclick="queueTeam(\'Blue2Queued\', ' . $matchLoop['MatchNumber'] . ', ' . $matchLoop['EventId'] . ')">Check In</button>');
                     }//end if Blue2Queued
                     echo('</div>');//end check
 
