@@ -11,6 +11,9 @@ body {
     color: #333333;
 }
 
+.checkInImg {
+    height: 35px;
+}
 .checkImg {
     height: 50px;
 }
