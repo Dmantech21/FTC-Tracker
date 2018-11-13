@@ -91,9 +91,7 @@
                 echo('</div>');//end card div
             }//end for loop
         ?>
-
-
-
+        
     </main>
 
 </body>
