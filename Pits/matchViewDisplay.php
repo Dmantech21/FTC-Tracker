@@ -98,3 +98,7 @@
 
 </body>
 </html>
+
+<script>
+    setInterval(function(){location.reload(); }, 5000);
+</script>
