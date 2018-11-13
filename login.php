@@ -31,7 +31,7 @@
         $_SESSION['timeout'] = time();
         $_SESSION['location'] = "localhost";
         $_SESSION['dbUser'] = "phpmyadmin";
-        $_SESSION['dbPassword'] = "IndianaFIRST";
+        $_SESSION['dbPassword'] = "robotics";
         $_SESSION['dbName'] = "phpmyadmin";
 
         $json = json_encode($row);
