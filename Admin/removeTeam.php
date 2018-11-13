@@ -12,7 +12,7 @@
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
     $conn->query("DELETE FROM Team WHERE TeamNumber = $teamNumber");
-    
+
     echo("{}");
     $conn->close();
 ?>

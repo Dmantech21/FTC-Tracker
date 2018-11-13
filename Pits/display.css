@@ -1,0 +1,91 @@
+/*
+	COLORS:
+	#009CD7 ---> light blue
+	#ED1C24 ---> Red
+	#0066B3 ---> Dark Blue
+	#9A989A ---> Grey
+	#333333 ---> Almost Black (easier to read)
+*/
+body {
+    background-color: white;
+    color: #333333;
+}
+
+.checkInImg {
+    height: 35px;
+}
+.checkImg {
+    height: 50px;
+}
+
+/*** checkInDisplay ***/
+tr:nth-child(even) {
+    background-color: #0066B3;
+    color: white;
+}
+
+.button {
+    background-color: white;
+    color: #333333;
+}
+
+#displayTable tbody {
+    display: block;
+    max-height: 575px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#displayTable thead, tbody, tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/*** matchViewDisplay  ***/
+.matchTitle {
+    text-align: center;
+}
+
+.card {
+    float: left;
+    width: 48%;
+    border-radius: 15px;
+    height: 290px;
+    box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    margin: 10px;
+    -webkit-box-shadow: 0 0 25px 10px rgba(153, 153, 154, .7);
+    box-shadow: 0 0 25px 10px rgba(153, 153, 154, .7);
+}
+
+.red {
+    background-color: #ED1C24;
+    color: white;
+    border-radius: 5px;
+    float: left;
+    width: 46%;
+    box-sizing: border-box;
+    height: 90px;
+    margin: 1% 2%;
+    padding: 2%;
+}
+
+.blue {
+    background-color: #0066B3;
+    color: white;
+    border-radius: 5px;
+    float: left;
+    width: 46%;
+    box-sizing: border-box;
+    height: 90px;
+    margin: 1% 2%;
+    padding: 2%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .card {
+        float: none;
+        width: 100%;
+    }
+}

@@ -9,14 +9,12 @@
 
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
     $competitionId = $_GET['competitionId'];
+    $competitionDate = $_GET['competitionDate'];
+    $competitionName = $_GET['competitionName'];
+    $currentMatch = $_GET['currentMatch'];
 
-    $results = $conn->query("SELECT * FROM TeamEvent WHERE EventId =  $competitionId");
+    $results = $conn->query("UPDATE Event SET Name = '$competitionName', Date = '$competitionDate', CurrentMatch = $currentMatch
+                             WHERE Id = $competitionId");
 
-    $teams = array();
-    while($rs = $results->fetch_array(MYSQLI_ASSOC)) {
-        $teams[] = $rs;
-    }
-
-    $json = json_encode($teams);
-    echo($json);
+    echo("{}");
 ?>

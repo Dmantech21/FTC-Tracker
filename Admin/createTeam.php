@@ -16,7 +16,7 @@
         VALUES (
         $teamNumber, '$teamName'
         );");
-    
+
     echo("{}");
     $conn->close();
 ?>

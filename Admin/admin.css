@@ -1,9 +1,5 @@
 body {
-    background: transparent url(../gradient.jpeg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-color: #0066B3;
     font-family: arial, sans-serif;
   }
   .header{
@@ -35,14 +31,14 @@ body {
   .add-team, .info {
     width: 65%;
   }
-  
+
   /* Style the tab */
   .tab {
       overflow: hidden;
       border: 1px solid #CCC;
       background-color: rgb(6, 42, 70);
   }
-  
+
   /* Style the buttons inside the tab */
   .tab button {
       background-color: inherit;
@@ -55,12 +51,12 @@ body {
       font-size: 17px;
       color: #CCC;
   }
-  
+
   /* Change background color of buttons on hover */
   .tab button:hover {
       background-color: #6CA7D4;
   }
-  
+
   /* Create an active/current tablink class */
   .tab button.active {
       background-color: #CCC;
@@ -70,7 +66,7 @@ body {
   .tab button {
     width: 33.3333333333333%;
   }
-  
+
   /* Style the tab content */
   .tabcontent {
       display: none;
@@ -81,7 +77,7 @@ body {
       background-color: #CCC;
       margin-bottom: 2em;
   }
-  
+
   #header{
     border-radius: 25px;
     background: #CCC;
@@ -89,7 +85,7 @@ body {
     padding: 20px;
     margin-bottom: 2em;
   }
-  
+
   .button {
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
@@ -97,7 +93,7 @@ body {
     font-family: Arial;
     color: #CCC;
     font-size: 12px;
-    
+
     padding: 10px 15px 10px 15px;
     text-decoration: none;
     margin-top: 0.4em;
@@ -110,7 +106,7 @@ body {
   .delete {
     background: rgb(187, 0, 0);
   }
-  
+
   .select:hover {
     background: #313C74;
   }
@@ -118,7 +114,7 @@ body {
   .delete:hover {
     background: rgb(255, 28, 28);
   }
-  
+
   select {
     background-color:  rgb(6, 42, 70);
     color: #CCC;
@@ -126,7 +122,7 @@ body {
     width: 180px;
     text-align: center;
   }
-  
+
   .centerAlign {
     align-content: center;
   }

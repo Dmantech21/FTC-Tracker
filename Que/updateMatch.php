@@ -14,8 +14,9 @@
     $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
 
     $result = $conn->query("UPDATE EventMatch SET $attribute = 1 WHERE MatchNumber = $matchNumber AND EventId = $eventId;");
-    
+
     echo("{}");
 
     $conn->close();
+    //Written by Dylan Mangold
 ?>
