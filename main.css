@@ -140,7 +140,7 @@ th {
 .checkImg {
     height: 50px;
 }
-.card {
+.bigCard {
     border-radius: 25px;
     background-color: #9A989A;
     border: 3px solid white;
@@ -178,22 +178,22 @@ th {
     width: 25%;
     line-height: 90px;
 }
-.check {
+.checkQ {
     height: 90px;
     float: left;
     width:20%;
     line-height: 90px;
 }
 
-.check img {
+.checkQ img {
     line-height: 90px;
 }
 
-.red {
+.redQ {
     text-align: end;
 }
 
-.blue {
+.blueQ {
     text-align: end;
 }
 
@@ -202,18 +202,18 @@ th {
 }
 
 @media only screen and (max-width: 750px) {
-    .red {
+    .redQ {
         width: 62%;
         text-align: center;
     }
-    .blue {
+    .blueQ {
         width: 62%;
         text-align: center;
     }
-    .check {
+    .checkQ {
         width: 10%;
     }
-    .card {
+    .bigCard {
         height: 500px;
     }
 
@@ -221,7 +221,7 @@ th {
 
 @media only screen and (max-width: 1000px) {
 
-    .card {
+    .bigCard {
         width: 90%;
     }
 }
