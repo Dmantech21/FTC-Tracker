@@ -1,12 +1,9 @@
 <?php
     session_start();
-<<<<<<< HEAD
-    $conn = new mysqli("localhost", "phpmyadmin", "robotics", "phpmyadmin");
-=======
     header("Content-type: application/json");
 
     $conn = new mysqli("localhost", "phpmyadmin", "IndianaFIRST", "phpmyadmin");
->>>>>>> develop
+    header("Content-type: application/json");
     $checkLoggedIn = $_GET['checkLoggedIn'];
 
     if (isset($_SESSION['logged_In']) && $_SESSION['logged_In'] == true && $checkLoggedIn) {
