@@ -3,7 +3,7 @@
         <h1>FTC-Competition Tracker</h1>
     </div>
     <div class="header-right">
-        <h4> <?php 
+        <h4> <?php
             session_start();
             echo($_SESSION['Role']);
         ?></h4>

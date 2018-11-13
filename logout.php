@@ -4,4 +4,5 @@
     $_SESSION['userName'] = null;
     $_SESSION['Role'] = null;
     $_SESSION['timeout'] = null;
+    session_destroy();
 ?>

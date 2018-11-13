@@ -32,7 +32,7 @@
         }
     ?>
     <head>
-        <title>FTC-Competition Tracker</title>
+        <title>FTC Competition Tracker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="admin.css">
     </head>
@@ -126,7 +126,7 @@
                     <button class="button select teams" onclick="loadCompetition()"> Select Competition </button>
                     <button class="button select teams" onclick="openCompetition()"> Open Competition </button>
                 </div>
-            
+
                 <div class="row info">
                     <div id="competitionTeams" class="teams">
                         <?php
@@ -159,13 +159,13 @@
         </div>
 
         <script>
-            $('#header').load('../header.php');
+            $('#header').load('adminHeader.php');
 
             document.getElementById('fileToUpload').onchange = function(){
                 let fileName = document.getElementById('fileToUpload').files[0].name;
                 $('#status')[0].innerText = `${fileName} Selected`;
             };
-            
+
             function uploadFile(){
                 var file = document.getElementById('fileToUpload').files[0];
                 let competition = JSON.parse($('#competitions option:selected').val());
@@ -223,7 +223,7 @@
                 let date = $("#date").val();
                 let eventName = $("#eventName").val();
                 let eventId = null;
-                
+
                 if (teams.length > 0 && eventName !== '' && date !== '') {
                     $.get(`./createEvent.php?date=${date}&eventName=${eventName}`, function(result){
                         eventId = result.Id;
@@ -282,7 +282,7 @@
             function openCompetition() {
                 let event = JSON.parse($('#competitions option:selected').val())
                 let eventId = event.Id;
-                
+
                 $.get(`./setOpenCompetition.php?eventId=${eventId}`, function(result){
                     window.location.reload();
                 });

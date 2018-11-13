@@ -13,7 +13,7 @@
 
     $conn->query("UPDATE Event SET Open = 0;");
 
-    $conn->query("UPDATE Event 
+    $conn->query("UPDATE Event
         SET Open = 1
         WHERE Id = '$eventId'");
 

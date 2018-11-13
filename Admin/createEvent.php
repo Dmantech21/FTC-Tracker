@@ -17,9 +17,9 @@
         null, '$eventName', '$date', 0, 0
         );");
 
-    $results = $conn->query("SELECT * FROM Event 
+    $results = $conn->query("SELECT * FROM Event
         WHERE Name = '$eventName'");
-    
+
     $row = $results->fetch_array(MYSQLI_ASSOC);
 
     $json = json_encode($row);

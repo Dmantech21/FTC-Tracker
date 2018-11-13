@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./checkin.css">
-    <?php
+<?php
         session_start();
         if ($_SESSION['timeout'] + 600 < time()) {
             $_SESSION['logged_In'] = false;
@@ -27,18 +22,25 @@
 
         $conn = new mysqli($dbLocation, $dbUser, $dbPassword, $dbName);
     ?>
-    <head>
-        <title>FTC-Competition Tracker</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div id="header"></div>
-        <div class="center">
-            <?php
-                $result = $conn->query("SELECT Id FROM Event WHERE Open = 1;");
-                $rs = $result->fetch_array(MYSQLI_ASSOC);
-                $competitionId = $rs["Id"];
-            ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Check In</title>
+	<link rel="stylesheet" type="text/css" href="../main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+	<main>
+
+		<?php include '../headerBasic.php'; ?>
+
+        <?php
+            $result = $conn->query("SELECT Id FROM Event WHERE Open = 1;");
+            $rs = $result->fetch_array(MYSQLI_ASSOC);
+            $competitionId = $rs["Id"];
+        ?>
             <select id="teams">
                 <option value="" disabled selected>Select Team</option>teams
                 <?php
@@ -59,20 +61,25 @@
                     while ($rs = $results->fetch_array(MYSQLI_ASSOC)) {
                         echo ("<option value='" . $rs["TeamNumber"] . "'>" .  $rs["TeamNumber"] . " - " . $rs["Name"] . "</option>");
                         $teams[] = $rs;
-                    }  
+                    }
                 ?>
             </select>
-            <button class="button select" onclick="updateTeamAtEvent()"> Approve Team </button>
-        </div>
-        <script>
-            $('#header').load('../header.php');
 
-            function updateTeamAtEvent() {
-                let team = $('#teams option:selected').val();
-                $.get(`./updateTeamAtCompetition.php?competitionId=<?php echo($competitionId)?>&teamId=${team}&attribute=<?php echo($attribute)?>`, function(result) {
-                    window.location.reload();
-                });
-            }
-        </script>
-    </body>
-</html> 
+            <br />
+
+        <button class="button button-fade" onclick="updateTeamAtEvent()"> Approve Team </button>
+
+    </main>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+function updateTeamAtEvent() {
+    let team = $('#teams option:selected').val();
+    $.get(`./updateTeamAtCompetition.php?competitionId=<?php echo($competitionId)?>&teamId=${team}&attribute=<?php echo($attribute)?>`, function(result) {
+        window.location.reload();
+    });
+    }
+</script>
